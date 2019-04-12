@@ -13,4 +13,4 @@ RUN go install -v ./...
 ENV PORT 8080
 EXPOSE 8080
 RUN ["echo", "$PATH"]
-CMD ["go", "run", "app.go"]
+CMD ["go", "run", "app/app.go"]
