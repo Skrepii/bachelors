@@ -1,11 +1,11 @@
 FROM golang:latest
 
-RUN mkdir -p /go/src/app
-WORKDIR /go/src/app
+RUN mkdir -p /go/src/bachelors
+WORKDIR /go/src/bachelors
 
-COPY app/ /go/src/app
-COPY handlers/ /go/src/app
-COPY static/ /go/src/app
+ADD app/ /go/src/bachelors/app
+ADD handlers/ /go/src/bachelors/handlers
+ADD static/ /go/src/bachelors/static
 
 RUN go get -d -v ./...
 RUN go install -v ./...
