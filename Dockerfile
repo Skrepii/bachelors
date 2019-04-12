@@ -10,7 +10,4 @@ ADD static/ /go/src/bachelors/static
 RUN go get -d -v ./...
 RUN go install -v ./...
 
-ENV PORT 80
-EXPOSE 80
-RUN ["echo", "$PATH"]
 CMD ["go", "run", "app/app.go"]
