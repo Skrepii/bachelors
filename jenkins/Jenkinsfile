@@ -5,7 +5,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'docker build -t testapp .'
+                sh 'docker build -t testapp server/.'
                 sh 'docker run -it testapp -c "cd handlers/ && go test"'
                 sh 'docker rmi --force $(docker images -q testapp | uniq)'
             }
