@@ -7,13 +7,17 @@ pipeline {
         }
 
         stage('Test') {
-            echo 'Testing...'
-            sh 'cd server/handlers && go test'
+            steps {
+                echo 'Testing...'
+                sh 'cd server/handlers && go test'
+            }
         }
 
         stage('Deploying') {
-            echo 'Deploying...'
-            sh 'docker-compose up -d --build app'
+            steps {
+                echo 'Deploying...'
+                sh 'docker-compose up -d --build app'
+            }
         }
     }
 }
