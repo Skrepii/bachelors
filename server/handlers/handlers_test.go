@@ -12,7 +12,7 @@ import (
 func TestLoginHandler(t *testing.T) {
 	form := url.Values{}
 	form.Add("username", "mike")
-	form.Add("password", "wasowsk")
+	form.Add("password", "wasowski")
 	req, err := http.NewRequest("POST", "/login", strings.NewReader(form.Encode()))
 	if err != nil {
 		t.Fatal(err)
