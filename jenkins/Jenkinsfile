@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stage('Clone') {
+        checkout scm
+    }
+
+    stage('Test') {
+        echo 'Testing...'
+        sh 'cd server/handlers && go test'
+    }
+
+    stage('Deploying') {
+        echo 'Deploying...'
+        sh 'docker-compose up -d --build app'
+    }
+}
