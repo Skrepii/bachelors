@@ -3,10 +3,14 @@ pipeline {
 
     stages {
         stage('Test') {
+            agent {
+                dockerfile {
+                    dir 'server'
+                }
+            }
+
             steps {
-                sh 'docker build -t testapp server/.'
-                sh 'docker run testapp bash -c "cd handlers/ && go test"'
-                sh 'docker rmi --force $(docker images -q testapp | uniq)'
+                sh 'cd handlers/ && go test'
             }
         }
 
