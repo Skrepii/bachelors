@@ -10,11 +10,12 @@ pipeline {
             }
 
             steps {
-                sh 'cd handlers/ && go test'
+                sh 'cd /go/src/bachelors/handlers/ && go test'
             }
         }
 
         stage('Deploy') {
+            agent any
             steps {
                 sh 'docker-compose up -d --build app'
             }
