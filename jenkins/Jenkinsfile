@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage('Test') {
@@ -15,6 +15,7 @@ pipeline {
         }
 
         stage('Deploy') {
+            agent any
             steps {
                 sh 'docker-compose up -d --build app'
             }
