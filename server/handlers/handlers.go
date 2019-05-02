@@ -7,7 +7,8 @@ import (
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
 	adminUser, adminPass := "mike", "wasowski"
-	err := r.ParseForm(); if err != nil {
+	err := r.ParseForm()
+	if err != nil {
 		fmt.Println("Error in parsing form: ", err.Error())
 	}
 
