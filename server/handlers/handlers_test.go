@@ -55,7 +55,7 @@ func TestLoginHandler_fail(t *testing.T) {
 		t.Errorf("Handler returned wrong status code: got %v want %v", status, http.StatusSeeOther)
 	}
 
-	expectedBody := "Access Denied"
+	expectedBody := "Access denied"
 	if rr.Body.String() != expectedBody {
 		t.Errorf("Handler returned unexpected body: got %v want %v", rr.Body.String(), expectedBody)
 	}
